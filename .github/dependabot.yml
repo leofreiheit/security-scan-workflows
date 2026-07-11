@@ -4,3 +4,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    commit-message:
+      # release-please only bumps the version for "fix"/"feat" commits.
+      # A pinned-action bump is a real behavior change for consumers of
+      # this repo, so it should trigger a release like any other fix.
+      prefix: "fix"
+      include: "scope"
