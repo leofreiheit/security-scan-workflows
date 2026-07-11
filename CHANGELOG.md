@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.4](https://github.com/leofreiheit/security-scan-workflows/compare/v0.1.3...v0.1.4) (2026-07-11)
+
+
+### Bug Fixes
+
+* **dependabot:** use fix commit prefix for dependency bumps ([0556a99](https://github.com/leofreiheit/security-scan-workflows/commit/0556a99b61902394445fe35a455d76d7d6bc1679))
+* **trivy-image-scan:** correct trivy-action tag to include v prefix ([00691e2](https://github.com/leofreiheit/security-scan-workflows/commit/00691e21e3751fc542859ffa213f6c2609740fa7))
+
 ## [0.1.3](https://github.com/leofreiheit/security-scan-workflows/compare/v0.1.2...v0.1.3) (2026-07-11)
 
 
