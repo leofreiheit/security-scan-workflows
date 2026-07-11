@@ -1,0 +1,37 @@
+name: "Trivy Image Scan"
+description: >
+  Scan a container image for vulnerabilities with Trivy. This is a composite
+  action (runs as a step), not a workflow_call workflow, specifically so it
+  can run inside the same job that builds the image — it can scan a locally
+  built image (docker build --load) before that image is ever pushed to a
+  registry.
+inputs:
+  image-ref:
+    description: "Image reference to scan (local tag or registry ref)"
+    required: true
+  severity:
+    description: "Comma-separated severities to report/fail on"
+    required: false
+    default: "CRITICAL"
+  exit-code:
+    description: >
+      Exit code Trivy uses when it finds matching severities. "0" means
+      report-only (job stays green); "1" means fail the job.
+    required: false
+    default: "0"
+  trivyignores:
+    description: >
+      Path to a .trivyignore file, relative to the caller's working
+      directory. Safe to point at a path that doesn't exist yet.
+    required: false
+    default: ".trivyignore"
+runs:
+  using: "composite"
+  steps:
+    - uses: aquasecurity/trivy-action@0.28.0
+      with:
+        image-ref: ${{ inputs.image-ref }}
+        format: table
+        severity: ${{ inputs.severity }}
+        exit-code: ${{ inputs.exit-code }}
+        trivyignores: ${{ inputs.trivyignores }}

@@ -1,0 +1,46 @@
+name: Kubernetes Manifest Security Scan
+
+on:
+  workflow_call:
+    inputs:
+      manifests-path:
+        description: >
+          Path (relative to the calling repo root) to a directory containing
+          a kustomization.yaml, e.g. "manifests/cashier".
+        required: true
+        type: string
+      severity:
+        description: "Comma-separated severities to report/fail on"
+        required: false
+        type: string
+        default: "CRITICAL,HIGH"
+      exit-code:
+        description: >
+          Exit code Trivy uses when it finds matching severities. "0" means
+          report-only; "1" means fail the job.
+        required: false
+        type: string
+        default: "1"
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: imranismail/setup-kustomize@v2
+
+      - name: Render manifests
+        shell: bash
+        env:
+          MANIFESTS_PATH: ${{ inputs.manifests-path }}
+        run: kustomize build "$MANIFESTS_PATH" > /tmp/rendered.yaml
+
+      - name: Trivy config + secret scan
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: config
+          scan-ref: /tmp/rendered.yaml
+          format: table
+          severity: ${{ inputs.severity }}
+          exit-code: ${{ inputs.exit-code }}
