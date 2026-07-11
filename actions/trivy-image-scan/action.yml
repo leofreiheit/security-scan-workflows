@@ -28,10 +28,20 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Resolve trivyignores path
+      id: trivyignores
+      shell: bash
+      run: |
+        if [ -n "${{ inputs.trivyignores }}" ] && [ -f "${{ inputs.trivyignores }}" ]; then
+          echo "path=${{ inputs.trivyignores }}" >> "$GITHUB_OUTPUT"
+        else
+          echo "path=" >> "$GITHUB_OUTPUT"
+        fi
+
     - uses: aquasecurity/trivy-action@v0.36.0
       with:
         image-ref: ${{ inputs.image-ref }}
         format: table
         severity: ${{ inputs.severity }}
         exit-code: ${{ inputs.exit-code }}
-        trivyignores: ${{ inputs.trivyignores }}
+        trivyignores: ${{ steps.trivyignores.outputs.path }}
