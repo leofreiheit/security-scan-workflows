@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/leofreiheit/security-scan-workflows/compare/v0.1.4...v0.1.5) (2026-07-11)
+
+
+### Bug Fixes
+
+* **trivy-image-scan:** bump trivy-action to v0.36.0 ([33b1013](https://github.com/leofreiheit/security-scan-workflows/commit/33b1013defa841a857e5e537eeb78c1c26264013))
+
 ## [0.1.4](https://github.com/leofreiheit/security-scan-workflows/compare/v0.1.3...v0.1.4) (2026-07-11)
 
 
