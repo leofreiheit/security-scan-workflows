@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/leofreiheit/security-scan-workflows/compare/v0.1.5...v0.1.6) (2026-07-11)
+
+
+### Bug Fixes
+
+* **trivy-image-scan:** don't pass trivyignores path unless it exists ([b7eaafe](https://github.com/leofreiheit/security-scan-workflows/commit/b7eaafe290ebd2b92ba88879d2a45d5263815613))
+
 ## [0.1.5](https://github.com/leofreiheit/security-scan-workflows/compare/v0.1.4...v0.1.5) (2026-07-11)
 
 
