@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.3](https://github.com/leofreiheit/security-scan-workflows/compare/v0.1.2...v0.1.3) (2026-07-11)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/checkout from 6 to 7 ([e1029e3](https://github.com/leofreiheit/security-scan-workflows/commit/e1029e30d973b25b6a38906fea2f8461f05f848e))
+* **deps:** bump aquasecurity/trivy-action from 0.28.0 to 0.36.0 ([45a0131](https://github.com/leofreiheit/security-scan-workflows/commit/45a01319b96f1801a80c48cd9a0cc625272c0ec2))
+* **deps:** bump googleapis/release-please-action from 4 to 5 ([3b3bd0d](https://github.com/leofreiheit/security-scan-workflows/commit/3b3bd0d58b0387a6fcd45d033e1c7603632e965d))
+* **deps:** bump imranismail/setup-kustomize from 2 to 3 ([8644b71](https://github.com/leofreiheit/security-scan-workflows/commit/8644b71950229fd1c7b545404af548c8d05d81e5))
+
 ## [0.1.2](https://github.com/leofreiheit/security-scan-workflows/compare/v0.1.1...v0.1.2) (2026-07-11)
 
 
